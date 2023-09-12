@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль сотрудника</title>
+    <!-- Ваши стили CSS можно добавить здесь -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Профиль сотрудника</h1>
+
+        {% if employee %}
+        <div class="profile-info">
+            <p><strong>Имя сотрудника:</strong> {{ employee.name }}</p>
+            <p><strong>Email:</strong> {{ employee.email }}</p>
+            <!-- Другие данные о сотруднике, если необходимо -->
+        </div>
+        {% else %}
+        <p>Сотрудник не найден</p>
+        {% endif %}
+
+        <a href="/employee/orders">Просмотреть заказы клиентов</a>
+        <a href="/employee/clients">Просмотреть список клиентов</a>
+        <a href="/employee/goods">Просмотреть список товаров</a>
+        <a href="/logout">Выйти</a>
+    </div>
+</body>
+</html>

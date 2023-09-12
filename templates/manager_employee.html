@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список сотрудников</title>
+    <!-- Ваши стили CSS можно добавить здесь -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Список сотрудников</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Имя</th>
+                    <th>Email</th>
+                    <!-- Другие заголовки столбцов, если необходимо -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for employee in employees %}
+                <tr>
+                    <td>{{ employee.employee_id }}</td>
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.email }}</td>
+                    <!-- Другие данные сотрудников, если необходимо -->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/manager/profile">Назад к профилю менеджера</a>
+    </div>
+</body>
+</html>

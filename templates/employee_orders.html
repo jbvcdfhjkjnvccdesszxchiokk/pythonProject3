@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказы клиентов</title>
+    <!-- Ваши стили CSS можно добавить здесь -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Заказы клиентов</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID заказа</th>
+                    <th>Клиент</th>
+                    <th>Дата заказа</th>
+                    <th>Сумма заказа</th>
+                    <!-- Другие заголовки столбцов, если необходимо -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order.order_id }}</td>
+                    <td>{{ order.client_name }}</td>
+                    <td>{{ order.order_date }}</td>
+                    <td>{{ order.order_total }}</td>
+                    <!-- Другие данные о заказах, если необходимо -->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="/employee/profile">Назад к профилю сотрудника</a>
+    </div>
+</body>
+</html>

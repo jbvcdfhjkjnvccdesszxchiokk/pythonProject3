@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль менеджера</title>
+    <!-- Ваши стили CSS можно добавить здесь -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Профиль менеджера</h1>
+
+        {% if user %}
+        <div class="profile-info">
+            <p><strong>Имя менеджера:</strong> {{ user.name }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <!-- Другие данные о менеджере, если необходимо -->
+        </div>
+        {% else %}
+        <p>Менеджер не найден</p>
+        {% endif %}
+
+        <a href="/manager/employee">Просмотреть список сотрудников</a>
+        <a href="/manager/orders">Просмотреть список заказов</a>
+        <a href="/manager/clients">Просмотреть список клиентов</a>
+        <a href="/manager/goods">Просмотреть список товаров</a>
+        <a href="/logout">Выйти</a>
+    </div>
+</body>
+</html>

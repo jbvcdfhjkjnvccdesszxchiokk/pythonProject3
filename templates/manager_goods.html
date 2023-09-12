@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление товарами</title>
+    <!-- Ваши стили CSS можно добавить здесь -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Управление товарами</h1>
+
+        <!-- Секция для списка товаров -->
+        <section id="goods-list">
+            <h2>Список товаров</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID товара</th>
+                        <th>Название</th>
+                        <th>Категория</th>
+                        <th>Цвет</th>
+                        <th>Бренд</th>
+                        <th>Цена</th>
+                        <!-- Другие заголовки столбцов, если необходимо -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for good in goods %}
+                    <tr>
+                        <td>{{ good.goods_id }}</td>
+                        <td>{{ good.name }}</td>
+                        <td>{{ good.category_id }}</td>
+                        <td>{{ good.color_id }}</td>
+                        <td>{{ good.brand_id }}</td>
+                        <td>{{ good.price }}</td>
+                        <!-- Другие данные о товарах, если необходимо -->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Секция для добавления товара -->
+        <section id="add-good">
+            <h2>Добавление товара</h2>
+            <form method="POST" action="/manager/goods/add_goods">
+                <label for="name">Название товара:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="category_id">ID категории:</label>
+                <input type="text" id="category_id" name="category_id" required>
+
+                <label for="color_id">ID цвета:</label>
+                <input type="text" id="color_id" name="color_id" required>
+
+                <label for="brand_id">ID бренда:</label>
+                <input type="text" id="brand_id" name="brand_id" required>
+
+                <label for="price">Цена:</label>
+                <input type="text" id="price" name="price" required>
+
+                <button type="submit">Добавить товар</button>
+            </form>
+        </section>
+
+        <!-- Секция для удаления товара -->
+        <section id="delete-good">
+            <h2>Удаление товара</h2>
+            <form method="POST" action="/manager/goods/delete_goods">
+                <label for="goods_id">ID товара для удаления:</label>
+                <input type="text" id="goods_id" name="goods_id" required>
+
+                <button type="submit">Удалить товар</button>
+            </form>
+        </section>
+
+        <a href="/manager/profile">Назад к профилю менеджера</a>
+    </div>
+</body>
+</html>

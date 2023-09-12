@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список товаров</title>
+    <!-- Ваши стили CSS можно добавить здесь -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Список доступных товаров</h1>
+
+        <form action="/client/goods" method="post">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID товара</th>
+                        <th>Название товара</th>
+                        <th>Категория</th>
+                        <th>Цвет</th>
+                        <th>Бренд</th>
+                        <th>Цена</th>
+                        <th>Выбрать</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for good in goods %}
+                    <tr>
+                        <td>{{ good.goods_id }}</td>
+                        <td>{{ good.name }}</td>
+                        <td>{{ good.category }}</td>
+                        <td>{{ good.color }}</td>
+                        <td>{{ good.brand }}</td>
+                        <td>{{ good.price }}</td>
+                        <td><input type="checkbox" name="selected_goods" value="{{ good.goods_id }}"></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <button type="submit">Добавить в заказ</button>
+        </form>
+
+        <a href="/client/profile">Назад к профилю клиента</a>
+    </div>
+</body>
+</html>

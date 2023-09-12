@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль клиента</title>
+    <!-- Ваши стили CSS можно добавить здесь -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Профиль клиента</h1>
+
+        {% if client %}
+        <div class="profile-info">
+            <p><strong>Имя клиента:</strong> {{ client.name }}</p>
+            <p><strong>Email:</strong> {{ client.email }}</p>
+            <!-- Другие данные о клиенте, если необходимо -->
+        </div>
+        {% else %}
+        <p>Информация о клиенте не найдена</p>
+        {% endif %}
+
+        <a href="/client/orders">Просмотреть список заказов</a>
+        <a href="/client/goods">Просмотреть список товаров</a>
+        <a href="/logout">Выйти</a>
+    </div>
+</body>
+</html>
